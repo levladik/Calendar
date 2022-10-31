@@ -92,6 +92,9 @@ h6 {
 
 /* ---------------------------- */
 
+* {
+	font-family: Lato;
+}
 main {
 	background-color: rgba(0, 0, 2, 0.959);
 	width: 100%;
@@ -99,15 +102,71 @@ main {
 	padding: 100px;
 }
 .calendar {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
 	color: rgb(177, 178, 179);
 	background-color: rgb(31, 30, 30);
 	border: 1px solid rgba(255, 255, 255, 0.171);
 	margin: 0 auto;
-	max-width: 400px;
+	padding-bottom: 45px;
+	width: 320px;
+}
+.calendar__current-date {
+	text-align: center;
 }
 .calendar__step {
+	text-align: center;
+	border-right: 1px solid rgba(255, 255, 255, 0.171);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.171);
+	padding: 15px;
+}
+.calendar__step_item {
+	margin-bottom: 3px;
+	text-align: left;
+}
+.calendar__dates {
+	border-bottom: 1px solid rgba(255, 255, 255, 0.171);
+	padding: 15px;
+}
+.calendar__day {
+	padding: 2px;
+}
+.calendar__current-date {
+	margin-bottom: 8px;
+	font-weight: 800;
 	display: inline-block;
 }
-.calendar__date {
+.calendar__week {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	text-align: center;
+}
+.week-day {
+	font-weight: 800;
+}
+.week-date {
+	color: rgba(255, 255, 255, 0.171);
+}
+.calendar__date_input {
+	text-align: center;
+	position: relative;
+	bottom: 36px;
+}
+input {
+	height: 25px;
+	padding: 0 5px;
+	background-color: rgba(255, 255, 255, 0.171);
+	color: rgb(177, 178, 179);;
+}
+button {
+	padding: 5px 10px;
+	margin: 0 2px;
+
+	color: rgb(177, 178, 179);
+	background-color: rgba(255, 255, 255, 0.171);
+}
+i {
 	display: inline-block;
+	padding: 5px;
+	border: 1px solid;
 }
