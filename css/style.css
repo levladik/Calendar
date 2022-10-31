@@ -95,29 +95,29 @@ h6 {
 * {
 	font-family: Lato;
 }
-main {
+.calendar__container {
 	background-color: rgba(0, 0, 2, 0.959);
-	width: 100%;
-	height: 100%;
-	padding: 100px;
 }
 .calendar {
 	display: grid;
+	grid-template-areas: 
+	'step dates'
+	'input input';
 	grid-template-columns: 1fr 2fr;
 	color: rgb(177, 178, 179);
 	background-color: rgb(31, 30, 30);
 	border: 1px solid rgba(255, 255, 255, 0.171);
 	margin: 0 auto;
-	padding-bottom: 45px;
-	width: 320px;
+	width: 340px;
 }
-.calendar__current-date {
+.current-date__container {
+	padding-bottom: 8px;
 	text-align: center;
 }
 .calendar__step {
+	grid-area: step;
 	text-align: center;
 	border-right: 1px solid rgba(255, 255, 255, 0.171);
-	border-bottom: 1px solid rgba(255, 255, 255, 0.171);
 	padding: 15px;
 }
 .calendar__step_item {
@@ -125,7 +125,7 @@ main {
 	text-align: left;
 }
 .calendar__dates {
-	border-bottom: 1px solid rgba(255, 255, 255, 0.171);
+	grid-area: dates;
 	padding: 15px;
 }
 .calendar__day {
@@ -148,13 +148,15 @@ main {
 	color: rgba(255, 255, 255, 0.171);
 }
 .calendar__date_input {
+	grid-area: input;
+	padding: 15px;
 	text-align: center;
-	position: relative;
-	bottom: 36px;
+	border-top: 1px solid rgba(255, 255, 255, 0.171);
 }
 input {
-	height: 25px;
+	height: 27px;
 	padding: 0 5px;
+	margin: 0 10px;
 	background-color: rgba(255, 255, 255, 0.171);
 	color: rgb(177, 178, 179);;
 }
