@@ -95,8 +95,11 @@ h6 {
 * {
 	font-family: Lato;
 }
+body {
+	background-color: rgb(0, 0, 0);
+}
 .calendar__container {
-	background-color: rgba(0, 0, 2, 0.959);
+	padding: 50px;
 }
 .calendar {
 	display: grid;
@@ -111,8 +114,14 @@ h6 {
 	width: 340px;
 }
 .current-date__container {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 	padding-bottom: 8px;
-	text-align: center;
+}
+.calendar__current-date {
+	font-weight: 800;
+	display: inline-block;
 }
 .calendar__step {
 	grid-area: step;
@@ -131,11 +140,6 @@ h6 {
 .calendar__day {
 	padding: 2px;
 }
-.calendar__current-date {
-	margin-bottom: 8px;
-	font-weight: 800;
-	display: inline-block;
-}
 .calendar__week {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
@@ -146,6 +150,9 @@ h6 {
 }
 .week-date {
 	color: rgba(255, 255, 255, 0.171);
+}
+.current-day {
+	color: rgba(177, 178, 179);
 }
 .calendar__date_input {
 	grid-area: input;
