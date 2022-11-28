@@ -1,4 +1,4 @@
-export const setPrevMonth = (str) => {
+const setPrevMonth = (str) => {
 	let prevMonth;
 	let dateArr = numericFormat.split('/'); // ['11', '2022']
 	let month = Number(dateArr[0]);
@@ -14,7 +14,7 @@ export const setPrevMonth = (str) => {
 	currentDate = new Date([currentYear, prevMonth]).toLocaleString('en', { month: 'numeric', year: 'numeric' });
 	console.log(`prevMonth: ${prevMonth} \ncurrenYear: ${currentYear} \ncurrentDate: ${currentDate}`);
 };
-export const setNextMonth = (str) => {
+const setNextMonth = (str) => {
 	let nextMonth;
 	let dateArr = numericFormat.split('/'); // ['11', '2022']
 	let month = Number(dateArr[0]);
@@ -30,3 +30,4 @@ export const setNextMonth = (str) => {
 	currentDate = new Date([currentYear, nextMonth]).toLocaleString('en', { month: 'numeric', year: 'numeric' });
 	console.log(`nextMonth: ${nextMonth} \ncurrenYear: ${currentYear} \ncurrentDate: ${currentDate}`);
 };
+export { setPrevMonth, setNextMonth };
