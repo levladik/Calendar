@@ -1,9 +1,20 @@
 // Current Date
-let currentDate = new Date();
+const date = {
+
+	value: new Date(),
+
+	get currentDate() {
+		return this.value;
+	},
+
+	set currentDate(newValue) {
+		this.value = newValue;
+	}
+}
 
 // Set Date in Day cell
-const setDay = (date) => { document.querySelector('.current-day').innerHTML = date.getDate() };
-setDay(currentDate);	
+const setDay = (date) => {	document.querySelector('.current-day').innerHTML = date.getDate() };
+setDay(date.currentDate);	
 
 // Set Date in Month Selector
 const setMonthYear = (date) => {
@@ -11,16 +22,16 @@ const setMonthYear = (date) => {
 	const year = date.getFullYear();
 	document.querySelector('.calendar__current-date').innerHTML = `${month} ${year}`;
 };
-setMonthYear(currentDate);
+setMonthYear(date.currentDate);
 
 // Current Year Only
 const setYear = (date) => { date.getFullYear() };
 let currentYear = setYear(new Date());
 
-const setPrevMonth = (str) => {
+const setPrevMonth = (date) => {
 	let prevMonth;
-	let month = currentDate.getMonth();
-	let year = currentDate.getFullYear();
+	let month = date.currentDate.getMonth();
+	let year = date.currentDate.getFullYear();
 
 	if (month === 1) {
 		prevMonth = 12;
@@ -29,14 +40,14 @@ const setPrevMonth = (str) => {
 		prevMonth = month - 1;
 		currentYear = year;
 	}
-	currentDate = new Date(currentYear, prevMonth, currentDate.getDate());
-	setDay(currentDate);
-	setMonthYear(currentDate);
+	date.currentDate = new Date(currentYear, prevMonth, date.currentDate.getDate());
+	setDay(date.currentDate);
+	setMonthYear(date.currentDate);
 };
-const setNextMonth = (str) => {
+const setNextMonth = (date) => {
 	let nextMonth;
-	let month = currentDate.getMonth();
-	let year = currentDate.getFullYear();
+	let month = date.currentDate.getMonth();
+	let year = date.currentDate.getFullYear();
 
 	if (month === 12) {
 		nextMonth = 1;
@@ -45,18 +56,18 @@ const setNextMonth = (str) => {
 		nextMonth = month + 1;
 		currentYear = year;
 	}
-	currentDate = new Date(currentYear, nextMonth, currentDate.getDate());
-	setDay(currentDate);
-	setMonthYear(currentDate);
+	date.currentDate = new Date(currentYear, nextMonth, date.currentDate.getDate());
+	setDay(date.currentDate);
+	setMonthYear(date.currentDate);
 };
 
 const buttonPrev = document.querySelector('.prev-month');
 const buttonNext = document.querySelector('.next-month');
 
 buttonPrev.addEventListener('click', () => {
-	setPrevMonth();
+	setPrevMonth(date);
 });
 
 buttonNext.addEventListener('click', () => {
-	setNextMonth();
+	setNextMonth(date);
 });
